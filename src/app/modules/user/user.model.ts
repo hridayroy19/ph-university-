@@ -33,4 +33,3 @@ const userSchema = new Schema<TUser>({
 })
 
 export const user = model<TUser>('user', userSchema)
-//push
