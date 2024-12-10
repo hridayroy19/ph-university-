@@ -67,9 +67,23 @@ const localGuradianSchema = new Schema<LocalGuardian>({
 });
 
 const studentSchema = new Schema<Student>({
-  id: { type: String },
+  id: {
+    type: String,
+    required: [true, 'ID is required'],
+    unique: true,
+  },
+  user:{
+    type:Schema.Types.ObjectId,
+    required:[true, 'user id is required'],
+    unique:true,
+    ref:'User'
+  },
   name: userNameSchema,
-  gender: ['male', 'female'],
+  gender:{
+    type:String,
+   enum: ['male', 'female' ] ,
+   required:true
+  },
   dateOfBirth: { type: String },
   email: { type: String, required: true },
   contactNo: { type: String, required: true },
@@ -80,7 +94,15 @@ const studentSchema = new Schema<Student>({
   guardian: guardianSchema,
   localGuardian: localGuradianSchema,
   profileImg: { type: String },
-  isActive: ['active', 'blocked'],
+  admisionSemester:{
+    type: Schema.Types.ObjectId,
+    ref:"AcademicSemester",
+
+  },
+});
+
+studentSchema.virtual('fullName').get(function () {
+  return this.name.firstName + this.name.middleName + this.name.lastName;
 });
 
 export const StudentModel = model<Student>('Student', studentSchema);
