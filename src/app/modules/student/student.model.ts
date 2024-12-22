@@ -72,17 +72,17 @@ const studentSchema = new Schema<Student>({
     required: [true, 'ID is required'],
     unique: true,
   },
-  user:{
-    type:Schema.Types.ObjectId,
-    required:[true, 'user id is required'],
-    unique:true,
-    ref:'User'
+  user: {
+    type: Schema.Types.ObjectId,
+    required: [true, 'user id is required'],
+    unique: true,
+    ref: 'User',
   },
   name: userNameSchema,
-  gender:{
-    type:String,
-   enum: ['male', 'female' ] ,
-   required:true
+  gender: {
+    type: String,
+    enum: ['male', 'female'],
+    required: true,
   },
   dateOfBirth: { type: String },
   email: { type: String, required: true },
@@ -94,10 +94,9 @@ const studentSchema = new Schema<Student>({
   guardian: guardianSchema,
   localGuardian: localGuradianSchema,
   profileImg: { type: String },
-  admisionSemester:{
+  admisionSemester: {
     type: Schema.Types.ObjectId,
-    ref:"AcademicSemester",
-
+    ref: 'AcademicSemester',
   },
 });
 

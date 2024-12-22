@@ -1,4 +1,3 @@
-
 export type TMonths =
   | 'January'
   | 'February'
@@ -24,7 +23,6 @@ export type TAcademicSemester = {
   endMonth: TMonths;
 };
 
- export type TAcadamiSemisterNameCodeMapper = {
-  [key: string] : string;
- }
-
+export type TAcadamiSemisterNameCodeMapper = {
+  [key: string]: string;
+};

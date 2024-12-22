@@ -1,5 +1,4 @@
-import { z } from "zod";
-
+import { z } from 'zod';
 
 const userNameValidationSchema = z.object({
   firstName: z
@@ -46,7 +45,7 @@ export const createStudentValidationSchema = z.object({
       localGuardian: localGuardianValidationSchema,
       admissionSemester: z.string(),
       profileImg: z.string(),
-      admisionSemester:z.string(),
+      admisionSemester: z.string(),
     }),
   }),
 });

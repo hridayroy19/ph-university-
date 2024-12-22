@@ -1,14 +1,17 @@
-import { model, Schema } from "mongoose";
-import { TAcademicSemester} from "./academicSemester.interface";
-import { AcademicSemesterCode, AcademicSemesterName, Months } from "./academicSemester.constant";
-
+import { model, Schema } from 'mongoose';
+import { TAcademicSemester } from './academicSemester.interface';
+import {
+  AcademicSemesterCode,
+  AcademicSemesterName,
+  Months,
+} from './academicSemester.constant';
 
 const acdemicSemesterSchema = new Schema<TAcademicSemester>(
   {
     name: {
       type: String,
       required: true,
-      enum:AcademicSemesterName
+      enum: AcademicSemesterName,
     },
     year: {
       type: String,
@@ -17,17 +20,17 @@ const acdemicSemesterSchema = new Schema<TAcademicSemester>(
     code: {
       type: String,
       required: true,
-      enum:AcademicSemesterCode,
+      enum: AcademicSemesterCode,
     },
     startMonth: {
       type: String,
       required: true,
-      enum:Months,
+      enum: Months,
     },
     endMonth: {
       type: String,
       required: true,
-      enum:Months,
+      enum: Months,
     },
   },
   {

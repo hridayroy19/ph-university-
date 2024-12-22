@@ -6,7 +6,7 @@ import express, { Application, NextFunction, Request, Response } from 'express';
 import globalErrorHandeler from './app/middlewares/globalErrorhandler';
 import notFound from './app/middlewares/notFound';
 import router from './app/routers';
-
+import { log } from 'console';
 
 const app: Application = express();
 
@@ -15,12 +15,11 @@ app.use(express.json());
 app.use(cors());
 
 // application routes
-app.use('/api/v1/',router);
-
+app.use('/api/v1/', router);
 
 //globalError Handeler
-app.use(globalErrorHandeler)
+app.use(globalErrorHandeler);
 //not found
-app.use(notFound)
+app.use(notFound);
 
 export default app;

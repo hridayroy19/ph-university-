@@ -3,9 +3,7 @@ import sendResponse from '../../utils/sendRespons';
 import httpStatus from 'http-status';
 import catchAsync from '../../utils/catchAsyne';
 
-
-
-const getAllStudents = catchAsync(async (req, res,) => {
+const getAllStudents = catchAsync(async (req, res) => {
   const result = await StudentServices.getAllStudentsFromDB();
 
   sendResponse(res, {
@@ -13,8 +11,7 @@ const getAllStudents = catchAsync(async (req, res,) => {
     success: true,
     message: 'Student is retrieved succesfully',
     data: result,
-
-  })
+  });
 });
 
 const getSingleStudent = catchAsync(async (req, res) => {
@@ -26,11 +23,8 @@ const getSingleStudent = catchAsync(async (req, res) => {
     success: true,
     message: 'Student is retrieved succesfully',
     data: result,
-  })
+  });
 });
-
-
-
 
 export const StudentControllers = {
   getAllStudents,

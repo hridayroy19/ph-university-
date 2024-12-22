@@ -1,13 +1,13 @@
-import  express from "express"
-import { userController } from "./user.controller";
-import validateRequest from "../../middlewares/validateRequest";
-import { createStudentValidationSchema } from "../student/student.validation";
-
+import express from 'express';
+import { userController } from './user.controller';
+// import validateRequest from '../../middlewares/validateRequest';
+// import { createStudentValidationSchema } from '../student/student.validation';
 
 const router = express.Router();
 
-
-router.post('/create-student' ,validateRequest(createStudentValidationSchema), userController.createUser)
-
+router.post(
+  '/create-student',
+  userController.createUser,
+);
 
 export const userRouter = router;
